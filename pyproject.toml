@@ -1,0 +1,69 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "monitorix-py"
+version = "0.1.0"
+description = "A Python3 rewrite of Monitorix - A lightweight system monitoring tool"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "GPL-2.0-or-later"}
+authors = [
+    {name = "Monitorix Python Port Team"}
+]
+keywords = ["monitoring", "system", "metrics", "performance"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: POSIX :: BSD",
+    "Topic :: System :: Monitoring",
+]
+
+dependencies = [
+    "psutil>=5.9.0",
+]
+
+[project.optional-dependencies]
+rrd = [
+    # "rrdtool>=0.1.0",  # Commented out - requires system librrd-dev
+]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+]
+
+[project.scripts]
+monitorix = "monitorix_py.monitorix:main"
+
+[project.urls]
+Homepage = "https://github.com/doguz2509/monitorix_py"
+Repository = "https://github.com/doguz2509/monitorix_py"
+"Original Project" = "https://github.com/mikaku/Monitorix"
+
+[tool.setuptools]
+packages = ["monitorix_py", "monitorix_py.lib"]
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310', 'py311', 'py312']
+
+[tool.ruff]
+line-length = 100
+target-version = "py38"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]

@@ -1,0 +1,11 @@
+# Core dependencies
+psutil>=5.9.0
+
+# Optional dependencies for full functionality
+# rrdtool>=0.1.0  # For RRD database support (requires system rrdtool)
+
+# Development dependencies
+pytest>=7.0.0
+pytest-cov>=4.0.0
+black>=23.0.0
+ruff>=0.1.0
